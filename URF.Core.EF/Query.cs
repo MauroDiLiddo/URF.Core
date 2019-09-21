@@ -16,7 +16,7 @@ namespace URF.Core.EF
         private IQueryable<TEntity> _query;
         private IOrderedQueryable<TEntity> _orderedQuery;
 
-        public Query(IRepository<TEntity> repository) =>_query = repository.Queryable();
+        public Query(IQueryableRepository<TEntity> repository) =>_query = repository.Queryable();
 
         public virtual IQuery<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
             => Set(q => q._query = q._query.Where(predicate));
